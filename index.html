@@ -7,9 +7,64 @@
 
       <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
       <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+      <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+            .poppins{
+                  font-family: "Poppins", sans-serif;
+            }
+            .filename { 
+                  position: relative;
+                  display: flex; 
+                  flex-direction: column; 
+                  width: 750px;
+            }
+            .filename input { 
+                  padding-left: 40px; 
+            }
+            .filename i { 
+                  position: absolute; 
+                  left: 6px;
+                  top: 13px; 
+                  padding: 9px 8px;
+            }
+      </style>
 </head>
-<body>
-      <h2 class="text-6xl">Hunting phone</h2>
+<body class="poppins">
+      <header class="bg-[#0D6EFD0D] h-[800px]">
+            <div class="container mx-auto">
+                  <div class="navbar py-12">
+                        <div class="flex-1 text-2xl font-bold"> Hot Gadgets</div>
+                        <div class="flex-none ">
+                          <button class="btn btn-square btn-ghost w-32 bg-[#0D6EFD]">sign-up</button>
+                        </div>
+                  </div>
+                  <h1 class="text-center text-[65px] font-bold">Apple Iphone 13 Pro Max</h1>
+                  <p class="w-[740px] mx-auto text-center mt-6">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humou.</p>
+                  <div class="flex justify-center mt-8">
+                        <button class="btn bg-[#0D6EFD]">Buy Now</button>
+                  </div>
+                  <img class="mx-auto mt-10" src="images/Group 48095420.png" alt="">
+            </div>
+            <p class="text-center text-4xl font-semibold pb-8">Search your phone</p>
+            <div class="form flex justify-center pb-12">
+                  <div class="filename ">
+                     <input type="text" class="p-4 bg-[#100F0F0D]" placeholder="Enter filename" name="filename">
+                     <i class="fa-solid fa-magnifying-glass"></i>
+                     <button class="btn absolute right-0 h-[58px] bg-[#0D6EFD]">submit</button>
+                  </div>
+            </div>
+
+
+      </header>
+      <main>
+
+      </main>
+      <footer>
+
+      </footer>
 
 
       <script src="phone.js"></script>
