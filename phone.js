@@ -11,6 +11,16 @@ const loadPhone = async (searchPhone) => {
 const displayPhones = phones => {
       const phoneContainer = document.getElementById('phone-container');
       phoneContainer.textContent = '';
+
+      const showButton = document.getElementById("show-all-container");
+      if(phones.length > 12){
+            showButton.classList.remove ('hidden');
+      }
+      else{
+            showButton.classList.add ('hidden');
+      }
+
+      phones = phones.slice (0, 12);
       phones.forEach (phone => {
             console.log(phone);
             const phoneCard = document.createElement('div');
