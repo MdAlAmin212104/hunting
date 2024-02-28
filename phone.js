@@ -45,23 +45,30 @@ const displayPhones = (phones, isShowAll) => {
 }
 
 const handlePhoneDetails = async (id)=> {
-      console.log(id);
       const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
       const data = await res.json();
       const phone = data.data;
-      console.log(phone);
       
       showPhoneDetails(phone);
 }
 
 const showPhoneDetails = (phone)  => {
       // show modal 
-      const phoneName = document.getElementById('phone-name');
-      phoneName.innerText = phone.name;
+      // const phoneName = document.getElementById('phone-name');
+      // phoneName.innerText = phone.name;
       const showDetailsContainer = document.getElementById('show-details-container');
       showDetailsContainer.innerHTML = `
-            <img class="" src="${phone.image}" alt="">
-            <p><span>Storage :</span>${phone?.mainFeatures?.storage}</p>
+            <img class="mx-auto py-12" src="${phone.image}" alt="">
+            <h3 class="text-xl font-bold">${phone.name}</h3>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            <p><span class="font-bold">Storage :</span> ${phone?.mainFeatures?.storage}</p>
+            <p><span class="font-bold">Display :</span> ${phone?.mainFeatures?.displaySize}</p>
+            <p><span class="font-bold">Chip-set :</span> ${phone?.mainFeatures?.chipSet}</p>
+            <p><span class="font-bold">Memory :</span> ${phone?.mainFeatures?.memory}</p>
+            <p><span class="font-bold">Slug :</span> ${phone?.slug}</p>
+            <p><span class="font-bold">Release-date :</span> ${phone?.releaseDate}</p>
+            <p><span class="font-bold">Brand :</span>${phone?.brand}</p>
+            <p><span class="font-bold">GPS :</span>${phone?.others?.GPS || "NO GPS"}</p>
       
       `
 
