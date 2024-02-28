@@ -1,6 +1,6 @@
 
 // https://openapi.programming-hero.com/api/phones?search=iphone
-const loadPhone = async (searchPhone, isShowAll) => {
+const loadPhone = async (searchPhone = '13', isShowAll) => {
       const res = await fetch (`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`);
       const data = await res.json();
       const phones = data.data
@@ -32,7 +32,7 @@ const displayPhones = (phones, isShowAll) => {
                         <h2 class="card-title">${phone.phone_name}</h2>
                         <p>${phone.slug}</p>
                         <div class="card-actions justify-center">
-                              <button onclick="showPhoneDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
+                              <button onclick="handlePhoneDetails('${phone.slug}'), showDetails_modal.showModal()" class="btn btn-primary">Show Details</button>
                         </div>
                   </div>
             `
@@ -44,11 +44,29 @@ const displayPhones = (phones, isShowAll) => {
       toggleLoadingSpinner(false);
 }
 
-const showPhoneDetails = async (id)=> {
+const handlePhoneDetails = async (id)=> {
       console.log(id);
       const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
       const data = await res.json();
-      console.log(data);
+      const phone = data.data;
+      console.log(phone);
+      
+      showPhoneDetails(phone);
+}
+
+const showPhoneDetails = (phone)  => {
+      // show modal 
+      const phoneName = document.getElementById('phone-name');
+      phoneName.innerText = phone.name;
+      const showDetailsContainer = document.getElementById('show-details-container');
+      showDetailsContainer.innerHTML = `
+            <img class="" src="${phone.image}" alt="">
+            <p><span>Storage :</span>${phone?.mainFeatures?.storage}</p>
+      
+      `
+
+      showDetails_modal.showModal();
+
 }
 
 
@@ -74,3 +92,5 @@ const toggleLoadingSpinner = (isLoading) => {
 const handleShowAll = () =>{
       handleSearch(true)
 }
+
+loadPhone()
